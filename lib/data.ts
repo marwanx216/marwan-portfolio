@@ -49,7 +49,7 @@ export const projects = [
 
     highlight: "Context-Aware Retrieval",
 
-    github: "#",
+    github: "https://github.com/MohammadTamer/NLP-RAG",
 
     demo: "#",
   },
@@ -68,7 +68,7 @@ export const projects = [
       "Tkinter",
     ],
     highlight: "Multi-Model ECG Classification",
-    github: "#",
+    github: "https://github.com/MohammadTamer/HCI-Project",
   },
 
   {
@@ -85,7 +85,7 @@ export const projects = [
 
     highlight: "Real-Time Analytics",
 
-    github: "#",
+    github: "https://github.com/marwanx216/WhisprPlus",
 
     demo: "#",
   },
