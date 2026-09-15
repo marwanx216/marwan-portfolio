@@ -1,0 +1,247 @@
+@import "tailwindcss";
+
+:root {
+  --background: #09090b;
+  --foreground: #fafafa;
+  --card: #111114;
+  --card-hover: #18181b;
+  --border: #27272a;
+  --primary: #ffffff;
+  --secondary: #a1a1aa;
+  --accent: #3b82f6;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist), sans-serif;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Selection */
+
+::selection {
+  background: var(--accent);
+  color: white;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2f2f35;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #505058;
+}
+
+/* Links */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Layout */
+
+.container {
+  width: min(1280px, calc(100% - 3rem));
+  margin-inline: auto;
+}
+
+.section {
+  position: relative;
+  width: min(1280px, calc(100% - 3rem));
+  margin-inline: auto;
+  padding: 8rem 0;
+}
+
+/* Typography */
+
+.section-title {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.25rem;
+}
+
+.section-subtitle {
+  max-width: 680px;
+  color: var(--secondary);
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-bottom: 4rem;
+}
+
+.mono {
+  font-family: var(--font-geist-mono), monospace;
+}
+
+/* Cards */
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+.card:hover {
+  background: var(--card-hover);
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.35),
+    0 10px 40px rgba(59, 130, 246, 0.08);
+}
+
+/* Buttons */
+
+.button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.6rem;
+  border-radius: 999px;
+  background: white;
+  color: black;
+  font-weight: 600;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.button-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.12);
+}
+
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.button-secondary:hover {
+  transform: translateY(-3px);
+  border-color: rgba(59, 130, 246, 0.6);
+  background: rgba(59, 130, 246, 0.06);
+  color: #60a5fa;
+}
+
+/* Gradient Text */
+
+.gradient-text {
+  background: linear-gradient(90deg, #ffffff 0%, #c7d2fe 45%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Ambient Background */
+
+.blur-bg {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.12);
+  filter: blur(140px);
+  pointer-events: none;
+}
+
+/* Subtle Grid */
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Focus */
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .container {
+    width: min(100% - 2rem, 1280px);
+  }
+
+  .section {
+    width: min(100% - 2rem, 1280px);
+    padding: 6rem 0;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  .blur-bg {
+    width: 300px;
+    height: 300px;
+    filter: blur(100px);
+  }
+}
+
+/* Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
