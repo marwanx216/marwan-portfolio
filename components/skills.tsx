@@ -97,7 +97,7 @@ export default function Skills() {
         </p>
       </motion.div>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {skillGroups.map((group, index) => {
           const Icon = group.icon;
 
@@ -111,37 +111,37 @@ export default function Skills() {
                 delay: index * 0.08,
                 duration: 0.6,
               }}
-              whileHover={{
-                y: -6,
-              }}
-              className="card group relative overflow-hidden p-8"
+              whileHover={{ y: -6 }}
+              className="card group relative flex min-h-[300px] flex-col items-center justify-center overflow-hidden px-8 py-10 text-center"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/[0.04] via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-              <div className="relative">
-                <div className="mb-7 flex items-center justify-between">
-                  <motion.div
-                    whileHover={{
-                      rotate: 8,
-                      scale: 1.08,
-                    }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 250,
-                    }}
-                    className="rounded-2xl border border-zinc-800 bg-zinc-900/70 p-3 transition-colors duration-300 group-hover:border-blue-500/40 group-hover:bg-blue-500/10"
-                  >
-                    <Icon size={24} className="text-blue-400" />
-                  </motion.div>
+              <div className="relative flex w-full flex-col items-center">
+                <motion.div
+                  whileHover={{
+                    rotate: 8,
+                    scale: 1.08,
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 250,
+                  }}
+                  className="mb-5 rounded-2xl border border-zinc-800 bg-zinc-900/70 p-4 transition-all duration-300 group-hover:border-blue-500/40 group-hover:bg-blue-500/10"
+                >
+                  <Icon size={28} className="text-blue-400" />
+                </motion.div>
 
-                  <span className="mono text-xs text-zinc-600">
-                    0{index + 1}
-                  </span>
-                </div>
+                <p className="mono mb-2 text-xs tracking-widest text-blue-400">
+                  0{index + 1}
+                </p>
 
-                <h3 className="mb-6 text-xl font-semibold">{group.title}</h3>
+                <h3 className="text-xl font-semibold tracking-tight">
+                  {group.title}
+                </h3>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="my-5 h-px w-14 bg-gradient-to-r from-transparent via-blue-500 to-transparent transition-all duration-500 group-hover:w-24" />
+
+                <div className="flex max-w-sm flex-wrap justify-center gap-2">
                   {group.skills.map((skill, skillIndex) => (
                     <motion.span
                       key={`${group.title}-${skill}`}
@@ -162,6 +162,8 @@ export default function Skills() {
                   ))}
                 </div>
               </div>
+
+              <div className="absolute bottom-0 left-1/2 h-px w-0 -translate-x-1/2 bg-blue-500 transition-all duration-500 group-hover:w-1/2" />
             </motion.div>
           );
         })}
