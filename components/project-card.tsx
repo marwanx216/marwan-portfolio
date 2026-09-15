@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 
 type Props = {
@@ -15,7 +14,6 @@ type Props = {
     technologies: string[];
     highlight: string;
     github: string;
-    demo: string;
   };
   reverse?: boolean;
 };
@@ -23,27 +21,14 @@ type Props = {
 export default function ProjectCard({ project, reverse = false }: Props) {
   return (
     <motion.article
-      initial={{
-        opacity: 0,
-        x: reverse ? 80 : -80,
-      }}
-      whileInView={{
-        opacity: 1,
-        x: 0,
-      }}
-      viewport={{
-        once: true,
-        amount: 0.3,
-      }}
-      transition={{
-        duration: 0.8,
-      }}
+      initial={{ opacity: 0, x: reverse ? 80 : -80 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.8 }}
       className={`grid items-center gap-16 lg:grid-cols-2 ${
         reverse ? "lg:[&>*:first-child]:order-2" : ""
       }`}
     >
-      {/* Mock Window */}
-
       <motion.div
         whileHover={{
           y: -8,
@@ -51,17 +36,12 @@ export default function ProjectCard({ project, reverse = false }: Props) {
           rotateY: -2,
           scale: 1.01,
         }}
-        transition={{
-          type: "spring",
-          stiffness: 200,
-        }}
+        transition={{ type: "spring", stiffness: 200 }}
         className="overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-950 shadow-2xl"
       >
         <div className="flex items-center gap-2 border-b border-zinc-800 px-5 py-4">
           <div className="h-3 w-3 rounded-full bg-red-500" />
-
           <div className="h-3 w-3 rounded-full bg-yellow-500" />
-
           <div className="h-3 w-3 rounded-full bg-green-500" />
         </div>
 
@@ -72,7 +52,7 @@ export default function ProjectCard({ project, reverse = false }: Props) {
             muted
             loop
             playsInline
-            className="h-[360px] w-full object-cover"
+            className="h-[360px] w-full bg-black object-contain"
           />
         ) : (
           <Image
@@ -84,8 +64,6 @@ export default function ProjectCard({ project, reverse = false }: Props) {
           />
         )}
       </motion.div>
-
-      {/* Content */}
 
       <div>
         <p className="mono mb-3 text-blue-400">{project.subtitle}</p>
@@ -112,14 +90,14 @@ export default function ProjectCard({ project, reverse = false }: Props) {
         </div>
 
         <div className="flex flex-wrap gap-4">
-          <a href={project.github} target="_blank" className="button-secondary">
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="button-secondary"
+          >
             <FaGithub className="mr-2 text-lg" />
             GitHub
-          </a>
-
-          <a href={project.demo} target="_blank" className="button-primary">
-            Live Demo
-            <ArrowUpRight size={18} className="ml-2" />
           </a>
         </div>
       </div>
