@@ -143,6 +143,72 @@ export const experience = [
   },
 ];
 
+export const certifications = [
+  {
+    number: "01",
+    title: "Data Science Training",
+    issuer: "FCIS-ASU",
+    year: "2025",
+    image: "/certificate-01.png",
+  },
+  {
+    number: "02",
+    title: "Artificial Intelligence Fundamentals",
+    issuer: "IBM",
+    year: "2025",
+    image: "/certificate-02.png",
+  },
+  {
+    number: "03",
+    title: "Machine Learning Specialization",
+    issuer: "DeepLearning.AI & Stanford",
+    year: "2025",
+    image: "/certificate-03.jpg",
+  },
+  {
+    number: "04",
+    title: "Introduction to Statistics",
+    issuer: "Stanford University",
+    year: "2025",
+    image: "/certificate-04.jpg",
+  },
+  {
+    number: "05",
+    title: "Data Science: R Programming Complete Diploma",
+    issuer: "IBM",
+    year: "2024",
+    image: "/certificate-05.jpg",
+  },
+  {
+    number: "06",
+    title: "IBM Data Analyst Career Certificate",
+    issuer: "IBM",
+    year: "2024",
+    image: "/certificate-06.jpg",
+  },
+  {
+    number: "07",
+    title: "SQL for Data Analysis with SQL Server",
+    issuer: "Udemy",
+    year: "2024",
+    image: "/certificate-07.png",
+  },
+  {
+    number: "08",
+    title: "Data Engineering Summer Training",
+    issuer: "POTENTIA",
+    year: "2023",
+    image: "/certificate-08.png",
+  },
+  {
+    number: "09",
+    title: "Coding with Python",
+    issuer: "GOMYCODE",
+    year: "2022",
+    image: "/certificate-09.png",
+  },
+];
+
 export const skills = [
   "Python",
   "PyTorch",
