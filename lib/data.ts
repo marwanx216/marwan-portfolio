@@ -70,7 +70,23 @@ export const projects = [
     highlight: "Multi-Model ECG Classification",
     github: "https://github.com/MohammadTamer/HCI-Project",
   },
-
+  {
+    title: "CipherMind",
+    subtitle: "Cryptographic Intelligence Laboratory",
+    video: "/ciphermind-demo.mp4",
+    description:
+      "Interactive cryptanalysis platform combining statistical fingerprinting, machine learning, deep learning, and independent cryptographic verification to analyze unknown ciphertext, identify likely cipher families, recommend cryptanalytic strategies, and validate candidates through actual cryptographic tests.",
+    technologies: [
+      "Python",
+      "PyTorch",
+      "FastAPI",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+    ],
+    highlight: "42 Cryptographic Algorithms",
+    github: "https://github.com/marwanx216/CipherMind",
+  },
   {
     title: "WhisprPlus",
 
