@@ -134,17 +134,17 @@ export const experience = [
   },
   {
     period: "JUL 2026 — Present",
-    role: "Marketing Director",
+    role: "Marketing Manager",
     company: "Seaside Beach Resort",
   },
   {
     period: "JUN 2025 — JUL 2026",
-    role: "Marketing Director",
+    role: "Marketing Manager",
     company: "Matemwe Sands Beach Resort",
   },
   {
     period: "JUN 2024 — MAR 2025",
-    role: "Marketing Director",
+    role: "Marketing Specialist",
     company: "Al Sahel Travel Agency | Cairo, Egypt",
   },
   {

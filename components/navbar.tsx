@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Download } from "lucide-react";
+import { Download, Menu, X } from "lucide-react";
 import { personal } from "@/lib/data";
 
 const links = [
@@ -16,6 +16,7 @@ const links = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -33,9 +34,9 @@ export default function Navbar() {
       transition={{ duration: 0.6 }}
       className="fixed left-0 top-0 z-50 w-full"
     >
-      <nav className="container mt-3 md:mt-5">
+      <nav className="container mt-3 px-4 md:mt-5">
         <div
-          className={`flex items-center justify-between rounded-full px-6 py-4 transition-all duration-300 ${
+          className={`flex items-center justify-between rounded-full px-5 py-3 md:px-6 md:py-4 transition-all duration-300 ${
             scrolled
               ? "border border-white/10 bg-black/70 shadow-2xl backdrop-blur-2xl"
               : "border border-white/5 bg-black/40 backdrop-blur-xl"
@@ -43,11 +44,13 @@ export default function Navbar() {
         >
           <a
             href="#"
+            onClick={() => setMobileMenuOpen(false)}
             className="text-lg font-bold tracking-wider transition hover:text-blue-400"
           >
             MARWAN.
           </a>
 
+          {/* Desktop navigation */}
           <div className="hidden items-center gap-8 md:flex">
             {links.map((link) => (
               <a
@@ -60,6 +63,7 @@ export default function Navbar() {
             ))}
           </div>
 
+          {/* Desktop resume button */}
           <a
             href={personal.resume}
             download
@@ -68,7 +72,55 @@ export default function Navbar() {
             <Download size={18} />
             Resume
           </a>
+
+          {/* Mobile menu toggle */}
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen((open) => !open)}
+            className="flex items-center justify-center rounded-full p-2 text-zinc-300 transition hover:bg-white/10 hover:text-white md:hidden"
+            aria-label={
+              mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"
+            }
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
+          >
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </div>
+
+        {/* Mobile dropdown */}
+        {mobileMenuOpen && (
+          <motion.div
+            id="mobile-navigation"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.2 }}
+            className="mt-3 rounded-2xl border border-white/10 bg-black/90 p-3 shadow-2xl backdrop-blur-2xl md:hidden"
+          >
+            <div className="flex flex-col gap-1">
+              {links.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="rounded-xl px-4 py-3 text-sm text-zinc-300 transition hover:bg-white/10 hover:text-white"
+                >
+                  {link.name}
+                </a>
+              ))}
+
+              <a
+                href={personal.resume}
+                download
+                onClick={() => setMobileMenuOpen(false)}
+                className="mt-2 flex items-center justify-center gap-2 rounded-xl border border-white/10 px-4 py-3 text-sm text-white transition hover:bg-white/10"
+              >
+                <Download size={16} />
+                Download Resume
+              </a>
+            </div>
+          </motion.div>
+        )}
       </nav>
     </motion.header>
   );
